@@ -1,4 +1,5 @@
 # Tasks
+- [ ] Add saved teacher notes and AI development summaries using student takrir history; verify generation and persistence.
 - [x] Move takrir from Yoklama to a separate Menu-linked page with one Verdi toggle and verify persistence/profile totals.
 - [x] Add explicit month/week selection for blank attendance downloads, including past and future months, and verify exports.
 - [x] Remove evidence picker and preset categories; support manual/AI categories and verify both tutanak forms.
