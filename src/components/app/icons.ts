@@ -45,3 +45,4 @@ export { default as Users } from "lucide-react/dist/esm/icons/users.js";
 export { default as X } from "lucide-react/dist/esm/icons/x.js";
 export type { LucideIcon } from "lucide-react";
 export { default as Mail } from "lucide-react/dist/esm/icons/mail.js";
+export { default as Loader2 } from "lucide-react/dist/esm/icons/loader-2.js";

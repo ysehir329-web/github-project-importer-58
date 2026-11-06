@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { isGroupId, replaceGroup, sliceGroup, type GroupId } from "./groups";
 import { createTakrirDay, setTakrir, type TakrirDay } from "./takrir";
+import type { DevelopmentSummary } from "./development";
 
 export type Student = {
   id: string;
@@ -17,6 +18,8 @@ export type Student = {
   status: "İyi" | "Orta";
   /** Class the student belongs to; missing on old records = İbtidai. */
   sinif?: GroupId | undefined;
+  developmentNotes?: string;
+  developmentSummary?: DevelopmentSummary & { createdAt: string; notes: string; history: string };
 };
 
 export type Tutanak = {
