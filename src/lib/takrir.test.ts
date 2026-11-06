@@ -10,6 +10,16 @@ describe("takrir", () => {
     const d = setTakrir(createTakrirDay([], "x", "2026-01-05", ["a"]), "2026-01-05", "a", true);
     expect(takrirStats(d, "a")).toEqual({ verdi: 1, vermedi: 0 });
   });
+  it("unmarked students count as vermedi without a second mark", () => {
+    const d = setTakrir(createTakrirDay([], "x", "2026-01-05", ["a", "b"]), "2026-01-05", "a", true);
+    expect(takrirStats(d, "b")).toEqual({ verdi: 0, vermedi: 1 });
+  });
+  it("toggling verdi off restores vermedi", () => {
+    let d = createTakrirDay([], "x", "2026-01-05", ["a"]);
+    d = setTakrir(d, "2026-01-05", "a", true);
+    d = setTakrir(d, "2026-01-05", "a", false);
+    expect(takrirStats(d, "a")).toEqual({ verdi: 0, vermedi: 1 });
+  });
   it("days without a takrir session are not counted", () => {
     let d = createTakrirDay([], "x", "2026-01-05", ["a"]);
     d = createTakrirDay(d, "y", "2026-01-09", ["a"]);

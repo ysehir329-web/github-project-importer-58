@@ -20,35 +20,6 @@ export const Route = createFileRoute("/yoklama")({
   component: Yoklama,
 });
 
-/** Takrir is only created on days it happens; marks save instantly. */
-function TakrirSection({ date, label }: { date: string; label: string }) {
-  const { students, takrirler, addTakrirDay, markTakrir, removeTakrirDay } = useStore();
-  const day = takrirler.find((d) => d.date === date);
-  const verdiCount = day ? students.filter((s) => day.results[s.id]).length : 0;
-  return (
-    <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-card">
-      <div className="flex items-center justify-between gap-2 bg-brand-soft px-3 py-3">
-        <span className="text-sm font-semibold">Takrir <span className="font-normal text-muted-foreground">· {label}{day ? ` · ${verdiCount}/${students.length} verdi` : ""}</span></span>
-        {day ? (
-          <Button variant="outline" size="sm" onClick={() => { if (confirm("Bu günün takririni silmek istiyor musunuz?")) removeTakrirDay(date); }}>Sil</Button>
-        ) : (
-          <Button size="sm" onClick={() => addTakrirDay(date)}>Takrir Oluştur</Button>
-        )}
-      </div>
-      {!day ? (
-        <p className="px-3 py-3 text-xs text-muted-foreground">Bu gün takrir yok. Takrir yapıldıysa "Takrir Oluştur"a basın.</p>
-      ) : students.map((s) => {
-        const verdi = day.results[s.id] === true;
-        return <div key={s.id} className="flex items-center gap-2 border-t border-border px-3 py-2.5">
-          <span className="min-w-0 flex-1 break-words text-sm">{s.name}</span>
-          <Button variant="outline" size="sm" aria-pressed={verdi} onClick={() => markTakrir(date, s.id, true)} className={verdi ? "border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground" : ""}>Verdi</Button>
-          <Button variant="outline" size="sm" aria-pressed={!verdi} onClick={() => markTakrir(date, s.id, false)} className={!verdi ? "border-destructive bg-destructive/10 text-destructive" : ""}>Vermedi</Button>
-        </div>;
-      })}
-    </div>
-  );
-}
-
 type Row = Pick<AttendanceRow, "vakitler" | "ders" | "durum" | "durumlar">;
 const emptyRow = (): Row => ({ vakitler: [], ders: false, durum: "normal", durumlar: {} });
 const notes = ["gec", "izinli", "hasta"] as const;
@@ -140,7 +111,6 @@ function Yoklama() {
           </div>)}
         </div>
       )}
-      {students.length > 0 && <TakrirSection date={date} label={label} />}
       <Sheet open={selected !== null} onClose={() => setSelected(null)} title={`${students.find((s) => s.id === selected?.id)?.name ?? ""} · ${selected?.column ?? ""}`}>
         <div className="grid grid-cols-2 gap-2">{(["geldi", "gec", "izinli", "hasta", "yok"] as const).map((status) => <Button key={status} variant="outline" aria-pressed={selected ? cellStatus(get(selected.id), selected.column) === status : false} className={`h-11 ${statusClass(status)}`} onClick={() => { if (selected) change(selected.id, selected.column, status); setSelected(null); }}>{CELL_LETTER[status]} · {CELL_LABEL[status]}</Button>)}</div>
       </Sheet>
