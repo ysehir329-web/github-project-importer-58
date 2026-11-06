@@ -1,7 +1,7 @@
 import { localIso } from "@/lib/utils";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useRef, useState } from "react";
-import { Download, Upload, FileDown, UserPlus, Sparkles, Mail} from "@/components/app/icons";
+import { Download, Upload, FileDown, UserPlus, Sparkles, Mail, BookOpen} from "@/components/app/icons";
 import { Button } from "@/components/ui/button";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { Sheet } from "@/components/app/Sheet";
@@ -97,6 +97,7 @@ function Menu() {
           <UserPlus className="text-primary" /> 55 deneme talebesi ekle
         </Button>
         <Link to="/ai-tutanak" className={btn}><Sparkles className="h-5 w-5 text-primary" /> AI ile Tutanak Hazırla</Link>
+        <Button variant="outline" asChild className="h-auto w-full justify-start whitespace-normal py-4"><Link to="/takrir"><BookOpen className="text-primary" /> Takrir</Link></Button>
         <button onClick={() => setReportOpen(true)} className={btn}><FileDown className="h-5 w-5 text-primary" /> Yoklama Raporu İndir (PDF / Excel)</button>
         <button onClick={() => setMailOpen(true)} className={btn}><Mail className="h-5 w-5 text-primary" /> Otomatik Rapor E-postası</button>
         <Suspense fallback={null}>

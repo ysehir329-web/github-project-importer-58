@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 ## Project rules
+- Takrir UI lives on its own Menu-linked route; reuse the existing takrir store and pure statistics helpers so moving the UI preserves saved sessions and profile counts.
 - Blank chart month/week selectors use the pure report calendar helpers; weeks retain Monday–Sunday boundaries and period titles are shared by screen and exports to keep dates consistent.
 - Both tutanak AI functions resolve categories through the pure shared helper, preserving manually typed categories over model suggestions so both creation forms follow the same rule.
 - The opening logo is React-owned inside the shared root, never removed by inline DOM scripts; use a short legibility interval, font readiness, a bounded fallback and React-owned dismissal so navigation cannot restart it or break hydration.
