@@ -1,5 +1,5 @@
 # Tasks
-- [ ] Move takrir from Yoklama to a separate Menu-linked page with one Verdi toggle and verify persistence/profile totals.
+- [x] Move takrir from Yoklama to a separate Menu-linked page with one Verdi toggle and verify persistence/profile totals.
 - [x] Add explicit month/week selection for blank attendance downloads, including past and future months, and verify exports.
 - [x] Remove evidence picker and preset categories; support manual/AI categories and verify both tutanak forms.
 - [x] Show the opening logo only at app startup, remove forced waiting, and verify page transitions do not restart it.
