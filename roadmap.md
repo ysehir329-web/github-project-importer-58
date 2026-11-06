@@ -1,0 +1,16 @@
+# Tasks
+- [x] Add explicit month/week selection for blank attendance downloads, including past and future months, and verify exports.
+- [x] Remove evidence picker and preset categories; support manual/AI categories and verify both tutanak forms.
+- [x] Show the opening logo only at app startup, remove forced waiting, and verify page transitions do not restart it.
+- [x] Include the full selected week/month in attendance exports; leave unrecorded days blank and verify PDF/Excel.
+- [x] Provide 55 clearly labeled trial students without replacing existing students and verify full-period exports with them.
+- [x] Complete per-cell attendance statuses and PDF/Excel totals; verify saved marks and exports.
+- [ ] Add blank PDF/Excel attendance charts for registered students and verify photo import compatibility.
+- [ ] Show tutanak photos full-width, uncropped and unframed.
+- [ ] Export complete family history with full-page photos and every signed document page.
+- [ ] Test export completeness and verify photo upload/download through the app.
+- [x] Bigger photos in tutanak PDFs.
+- [x] AI Tutanak page: short note -> full formal tutanak with child name and date (save, PDF, copy).
+- [x] Fix attendance errors: paper photos read X as "gelmedi", attendance auto-saves, reports count each day once.
+- [x] Email times: daily 21:00, weekly Sunday 09:00, monthly last day 09:00 (Istanbul); remove the group and address-hint notes.
+- [x] Student page + family PDF: replace day boxes with prayer counts (Cemaatle kılınan namaz, Katılmadığı namaz, Toplam Gün since first record).
